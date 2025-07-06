@@ -66,6 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateRestaurantSelect() {
         // Clear existing options first
         restaurantSelect.innerHTML = '';
+
+        // Add the default "Choose a Restaurant" option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = ""; // Empty value
+        defaultOption.textContent = "Choose a Restaurant";
+        defaultOption.disabled = true; // Make it unselectable
+        defaultOption.selected = true; // Make it the default selected option
+        restaurantSelect.appendChild(defaultOption);
+
         for (const restaurantName in restaurants) {
             const option = document.createElement('option');
             option.value = restaurantName;
@@ -83,6 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listener for the button click
     generateOrderBtn.addEventListener('click', () => {
         const selectedRestaurant = restaurantSelect.value;
+
+        // Prevent generating an order if the default option is still selected
+        if (selectedRestaurant === "") {
+            orderText.textContent = "Please select a restaurant first!";
+            randomOrderDisplay.classList.remove('hidden');
+            orderText.classList.remove('animate-pulse');
+            return; // Stop execution if no restaurant is selected
+        }
+
         const mealSuggestions = restaurants[selectedRestaurant];
 
         if (mealSuggestions && mealSuggestions.length > 0) {
