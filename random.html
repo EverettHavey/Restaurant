@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Restaurant Order</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles/random.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased">
+    <div class="container bg-white p-8 rounded-xl shadow-2xl border border-gray-200">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">
+            🍽️ What Should I Eat?
+        </h1>
+
+        <p class="text-gray-600 text-lg mb-8 text-center">
+            Let the app decide your next delicious meal! (No Shellfish or Nuts)
+        </p>
+
+        <div class="mb-6">
+            <label for="restaurantSelect" class="block text-gray-700 text-sm font-semibold mb-2">
+                Choose a Restaurant:
+            </label>
+            <div class="relative">
+                <select id="restaurantSelect" class="block appearance-none w-full bg-gray-50 border border-gray-300 text-gray-900 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out cursor-pointer">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <button id="generateOrderBtn" class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-3 px-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300">
+            Get My Random Order!
+        </button>
+
+        <div id="randomOrderDisplay" class="mt-10 p-6 bg-blue-50 rounded-xl border border-blue-200 text-center hidden">
+            <p class="text-xl font-semibold text-blue-800 mb-2">Your Random Order:</p>
+            <p id="orderText" class="text-3xl font-extrabold text-blue-900 animate-pulse"></p>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="scripts/random.js"></script>
+</body>
+</html>
